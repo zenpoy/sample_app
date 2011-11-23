@@ -38,5 +38,11 @@ module SampleApp
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+    
+    # Change default DIVs to SPANs in fields with errors
+    ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
+      include ActionView::Helpers::RawOutputHelper
+      raw %(<span class="field_with_errors">#{html_tag}</span>)
+    end
   end
 end
