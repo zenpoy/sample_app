@@ -5,3 +5,4 @@ tmp/**/*
 *.log
 .bundle/config
 .gitignore
+log/test.log
